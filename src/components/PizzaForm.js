@@ -1,16 +1,16 @@
 import React from "react"
 
-const PizzaForm = () => {
+const PizzaForm = (props) => {
+  console.log('PizzaForm foundPizza:', props.foundPizza)
   return(
       <div className="form-row">
         <div className="col-5">
             <input type="text" className="form-control" placeholder="Pizza Topping" value={
-                //Pizza Topping Should Go Here
-                null
+                  props.foundPizza.topping
               }/>
         </div>
         <div className="col">
-          <select value={null} className="form-control">
+          <select value={props.foundPizza.size} className="form-control">
             <option value="Small">Small</option>
             <option value="Medium">Medium</option>
             <option value="Large">Large</option>
@@ -31,7 +31,7 @@ const PizzaForm = () => {
           </div>
         </div>
         <div className="col">
-          <button type="submit" className="btn btn-success" onClick={console.log}>Submit</button>
+          <button type="submit" className="btn btn-success" onClick={props.handleSubmit}>Submit</button>
         </div>
       </div>
 
